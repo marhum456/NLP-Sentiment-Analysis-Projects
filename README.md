@@ -34,14 +34,47 @@ The primary goal is to compare a simple, rule-based approach (TextBlob) with sop
   - Count Vectorizer (Bag-of-Words)
 - **Evaluation Metrics:** Precision, Recall, F1-Score, Accuracy
 
-**Performance Summary:**
-| Model | Best Accuracy | Best F1-Score (Yes) | Best Vectorizer |
-|-------|---------------|---------------------|-----------------|
-| Logistic Regression | **69%** | **0.77** | TF-IDF |
-| SVM | 67% | 0.76 | TF-IDF |
-| Naive Bayes | 66% | 0.75 | Bag-of-Words |
+### Classification Models Performance Summary
 
-**Key Finding:** Logistic Regression with TF-IDF features achieved the highest overall accuracy (69%) and best performance on the "Yes" class (F1-Score: 0.77).
+### Overview
+Comparison of three machine learning classifiers (SVM, Naive Bayes, Logistic Regression) using two text vectorization techniques (TF-IDF and Bag of Words) for global warming tweet classification.
+
+### Performance Metrics Table
+
+| Model | Vectorization | Accuracy | Precision (Neutral) | Precision (No) | Precision (Yes) | Recall (Neutral) | Recall (No) | Recall (Yes) | F1 (Neutral) | F1 (No) | F1 (Yes) | Macro Avg F1 |
+|-------|---------------|----------|---------------------|----------------|-----------------|------------------|-------------|--------------|--------------|---------|----------|-------------|
+| SVM | TF-IDF | 0.670 | 0.620 | 0.640 | 0.700 | 0.520 | 0.470 | 0.830 | 0.570 | 0.540 | 0.760 | 0.623 |
+| SVM | BoW | 0.670 | 0.570 | 0.660 | 0.720 | 0.580 | 0.470 | 0.780 | 0.580 | 0.550 | 0.750 | 0.627 |
+| Naive Bayes | TF-IDF | 0.650 | 0.650 | 0.640 | 0.660 | 0.430 | 0.370 | 0.870 | 0.520 | 0.470 | 0.750 | 0.580 |
+| Naive Bayes | BoW | 0.660 | 0.610 | 0.530 | 0.740 | 0.570 | 0.660 | 0.710 | 0.590 | 0.590 | 0.730 | 0.637 |
+| Logistic Regression | TF-IDF | 0.680 | 0.650 | 0.670 | 0.700 | 0.530 | 0.470 | 0.840 | 0.580 | 0.550 | 0.770 | 0.633 |
+| Logistic Regression | BoW | 0.680 | 0.600 | 0.640 | 0.730 | 0.580 | 0.490 | 0.800 | 0.590 | 0.560 | 0.760 | 0.637 |
+
+### Key Findings
+
+### 🏆 Best Performers by Metric
+
+| Metric | Best Model | Score |
+|--------|------------|-------|
+| **Overall Accuracy** | Logistic Regression (TF-IDF & BoW) | 0.680 |
+| **Best Precision (Yes)** | Naive Bayes (BoW) | 0.740 |
+| **Best Recall (Yes)** | Naive Bayes (TF-IDF) | 0.870 |
+| **Best F1-Score (Yes)** | Logistic Regression (TF-IDF) | 0.770 |
+| **Best Macro Avg F1** | SVM (BoW), Naive Bayes (BoW), Logistic Regression (BoW) | 0.637 |
+
+### 📊 Performance Insights
+
+1. **Logistic Regression** consistently achieves the highest accuracy (0.68) with both vectorization methods
+2. **Naive Bayes with TF-IDF** has the highest recall for "Yes" class (0.87) but suffers from class imbalance
+3. **SVM with TF-IDF** shows strong performance for the "Yes" class with good balance
+4. **Bag of Words** generally provides more balanced performance across classes
+5. **TF-IDF** tends to perform better for the majority class ("Yes")
+
+### 🎯 Recommendation
+
+**For Overall Performance**: Logistic Regression with either TF-IDF or Bag of Words
+**For Balanced Classes**: Naive Bayes with Bag of Words  
+**For "Yes" Class Detection**: Naive Bayes with TF-IDF (if recall is priority) or Logistic Regression with TF-IDF (if F1-score is priority)
 
 ## How to Run the Code
 
