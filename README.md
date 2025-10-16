@@ -80,8 +80,8 @@ Comparison of three machine learning classifiers (SVM, Naive Bayes, Logistic Reg
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/Twitter-Sentiment-Analysis-ML-vs-TextBlob.git
-    cd Twitter-Sentiment-Analysis-ML-vs-TextBlob
+    git clone https://github.com/marhum456/NLP-Sentiment-Analysis-Projects.git
+    cd NLP-Sentiment-Analysis-Projects
     ```
 
 2.  **Install dependencies:**
